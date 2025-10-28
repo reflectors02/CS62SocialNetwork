@@ -1,0 +1,41 @@
+1. In step 1, which Linux commands did you use to (1) create a new folder and (2) copy
+your files into a new folder?
+
+mkdir "HW"
+cp ./* HW
+
+
+2. Could any of the breadth-first-search questions (shortestPath and distanceUser) be
+solved with depth-first-search? Why or why not?
+
+I do not believe the shortest path can be solved with DFS, because BFS will find the shortest path as it explores all possible paths simultaenousely--therefore whichever one 
+approaches the target first is the shortest path. However, DFS will give a path, but it might not be the shortest as it goes through one path and only backtracks if it didn't reach the target.
+
+
+3. Could the depth-first-search question (groups) be solved with breadth-first-search?
+Why or why not?
+
+The DFS problem can definitely be solved with BFS because they're all exploring ALL connected points of a source. However---the order may be different.
+
+4. Can the suggestFriends problem be solved without breadth-first-search and depth-first-
+search?
+
+You might be able to do it with recursive backtracking---same logic but it's much slower.
+
+5. Using big-O notation, what is the runtime of your shortestPath implementation in
+terms of n (the number of vertices) and/or m (the number of edges)?
+
+O(M + N)
+
+6. Using big-O notation, what is the runtime of your groups implementation in terms of
+n (the number of vertices) and/or m (the number of edges)?
+
+O(M + N)
+
+7. In hours, (approximately) how much time did you spend on this assignment? (there
+are no wrong answers)
+
+4-5 hours (excluding extra credit). Including extra credit 8-10hours
+
+
+(c) Redekopp, Linnell, Li 3

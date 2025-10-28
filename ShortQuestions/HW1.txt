@@ -1,0 +1,38 @@
+1. in the Network class, we stored the users as a vector of User pointers, rather than a
+vector of Users. Explain one main advantage of this.
+
+When the vector grows through the adding of new User objects. If we do not use a pointer, the existing user objects may be relocated (i.e. copy and pasting) into a different memory space---which can take time. Whereas pointers will not move the user object.
+
+
+2. In the User class, the getFriends returns a reference to the set of friends. Explain the
+main advantage the returning a reference has over returning the set without reference.
+
+If the user have a lot of friends, and many people are requesting the getFriends---then it would be expensive to copy everything and give it to everyone. It would be more efficient to give them the address of the friends set so that we don't make too much copies. 
+
+3. Explain one main advantage of storing the friends as a set, rather than a vector, in the
+User class.
+
+set has O(logn) look up time. If we want to see if someone in particular is the guy's friend then we can look it up very fast compared to vector's O(N)
+
+4. You might have tried implementing readUsers by pushing pointers to Users allocated
+on the stack, rather than pointers to Users on the heap, such as below. Explain why
+this will not work.
+// Does not work
+User u (id, name, zip, year, friends);
+users_.push_back(&u);
+
+Because U is a locally defined variable, and therefore it will not be accessible after the function ends.
+
+
+5. Using big-O notation, in terms of the number of vertices n and/or the number of edges
+m, describe the runtime of the following methods: User::addFriend, Network::addConnection,
+Network::deleteConnection, Network::numUsers.
+
+User::addFriend. It will be O(logn) because set.insert() is O(logn)
+
+Network::addConnection. It will be also O(logn)---more specifically O(2logn) because it does insert twice for each User. However, it is logically equivilent to O(logn)
+
+
+6. In hours, (approximately) how much time did you spend on this assignment? (there
+are no wrong answers, obviously)
+5-6hrs

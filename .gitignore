@@ -1,0 +1,5 @@
+.qtc_clangd
+*.o
+output
+*.out
+

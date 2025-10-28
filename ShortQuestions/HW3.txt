@@ -1,0 +1,25 @@
+1. Why did we store the posts as a vector of Post pointers, and not as a vector of Posts?
+There are two main reasons
+
+Because by storing the pointers we save memory---because by using a vector of posts we will be copying it into the vector which is very costly in memory.
+Additionally, we will be modifying the copy instead of the original thing if we choose to.
+
+2. In LinkPost::toString(), why can you not access the message field directly?
+
+Because the child class cannot access the private variables of the parent. It have to use a getter function to retrieve a copy of it.
+
+3. You want to call the Post::toString method for Posts and LinkPost::toString
+method for LinkPost in User::getPostsString. What keyword makes this possible,
+and where does that keyword go?
+
+virtual and override. Virtual goes in the Post class in the .h file while the override goes in the LinkPost .h.
+
+
+4. In hours, (approximately) how much time did you spend on this assignment? (there
+are no wrong answers)
+
+8 hours (most of the time was figuring out the problem with fileio in write and read files)
+
+
+
+(c) Redekopp, Linnell, Li 6
