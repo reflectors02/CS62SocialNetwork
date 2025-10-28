@@ -25,6 +25,9 @@ private:
 #endif // MAINWINDOW_H
 
 
+
+
+
 class SocialNetworkWindow : public MainWindow
 {
 public:

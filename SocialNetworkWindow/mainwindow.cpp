@@ -263,6 +263,7 @@ void SocialNetworkWindow::onfriendTableClicked(int r, int c)
 
 void SocialNetworkWindow::onReturnButtonClicked()
 {
+    displayed_User = logged_User;
     showDisplayWindow(logged_User);
 }
 
