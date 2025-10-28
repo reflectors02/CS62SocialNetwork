@@ -76,6 +76,9 @@ public:
 
     void admin_onUnbanButtonClicked();
 
+    void admin_onAdminAddAdminButtonClicked();
+
+    void admin_onAdminRemoveAdminButtonClicked();
 
 
 

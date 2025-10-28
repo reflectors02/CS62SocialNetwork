@@ -200,6 +200,32 @@
      <string>Unban</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="admin_addAdminButton">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>710</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>AddAdmin</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="admin_removeAdminButton">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>710</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>removeAdmin</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -38,6 +38,8 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
     connect(ui->display_postButton, &QPushButton::clicked, this, &SocialNetworkWindow::onPostButtonClicked);
     connect(ui->admin_banButton, &QPushButton::clicked, this, &SocialNetworkWindow::admin_onBanButtonClicked);
     connect(ui->admin_unbanButton, &QPushButton::clicked, this, &SocialNetworkWindow::admin_onUnbanButtonClicked);
+    connect(ui->admin_addAdminButton, &QPushButton::clicked, this, &SocialNetworkWindow::admin_onAdminAddAdminButtonClicked);
+    connect(ui->admin_removeAdminButton, &QPushButton::clicked, this, &SocialNetworkWindow::admin_onAdminRemoveAdminButtonClicked);
 }
 
 void SocialNetworkWindow::onLoginButton()
@@ -75,6 +77,8 @@ void SocialNetworkWindow::hideAdminPanel()
 {
     ui->admin_unbanButton->hide();
     ui->admin_banButton->hide();
+    ui->admin_addAdminButton->hide();
+    ui->admin_removeAdminButton->hide();
 }
 
 void SocialNetworkWindow::hideLoginWindow()
@@ -102,6 +106,8 @@ void SocialNetworkWindow::showAdminPanel()
 {
     ui->admin_banButton->show();
     ui->admin_unbanButton->show();
+    ui->admin_addAdminButton->show();
+    ui->admin_removeAdminButton->show();
 }
 
 void SocialNetworkWindow::display_setupFriendSuggestionTable(User* user)
@@ -288,5 +294,14 @@ void SocialNetworkWindow::admin_onUnbanButtonClicked()
     network.removeBannedUser(displayed_User);
 }
 
+void SocialNetworkWindow::admin_onAdminAddAdminButtonClicked()
+{
+    network.addAdminAccount(displayed_User);
+}
+
+void SocialNetworkWindow::admin_onAdminRemoveAdminButtonClicked()
+{
+    network.deleteAdminAccount(displayed_User);
+}
 
 
