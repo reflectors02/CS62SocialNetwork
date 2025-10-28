@@ -238,6 +238,8 @@ std::vector<int> Network::distanceUser(int from, int & to, int distance)
 
 	reverse(sol.begin(), sol.end());
 
+	if(sol.empty()){to = -1;}
+
 	return sol;
 }
 
@@ -489,3 +491,100 @@ int Network::writePosts(char* fname)	//USE A HASHMAP AND ITERATE ONCE THROUGH N(
 	return 1;
 }
 
+
+//HW7
+
+
+void Network::addAdminAccount(User* user)
+{
+	int id = user->getId();
+	adminAccounts_.insert(id);
+	updateAdmin();
+}
+
+void Network::deleteAdminAccount(User* user)
+{
+	int id = user->getId();
+	adminAccounts_.erase(id);
+	updateAdmin();
+}
+
+void Network::updateAdmin()
+{
+	std::ofstream FileOut("admin.txt");
+
+	for(int adminId : adminAccounts_)
+	{
+		FileOut << adminId << "\n";
+	}
+
+}
+
+void Network::readAdmin()
+{
+	std::ifstream FileIn("admin.txt");
+	std::stringstream ss;
+	std::string myline;
+
+	while(std::getline(FileIn, myline))
+	{
+		int id;
+		ss.str(myline);
+
+		if(ss >> id)
+		{
+			adminAccounts_.insert(id);
+		}
+		ss.clear();
+	}
+}
+
+bool Network::isAdmin(User* user)
+{
+	return adminAccounts_.contains(user->getId());
+}
+
+
+void Network::addBannedUser(User* user)
+{
+	int id = user->getId();
+	bannedUsers_.insert(id);
+	updateBanned();
+}
+
+void Network::removeBannedUser(User* user)
+{
+	int id = user->getId();
+	bannedUsers_.erase(id);
+	updateBanned();
+}
+
+void Network::updateBanned()
+{
+	std::ofstream FileOut("banned.txt");
+
+	for(int bannedId : bannedUsers_)
+	{
+		FileOut << bannedId << "\n";
+	}
+}
+
+void Network::readBanned()
+{
+	std::ifstream FileIn("banned.txt");
+	std::stringstream ss;
+	std::string myline;
+
+	while(std::getline(FileIn, myline))
+	{
+		int id;
+		ss.str(myline);
+
+		if(ss >> id)
+		{
+			bannedUsers_.insert(id);
+
+		}
+		ss.clear();
+	}
+}

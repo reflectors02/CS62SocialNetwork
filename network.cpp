@@ -495,14 +495,16 @@ int Network::writePosts(char* fname)	//USE A HASHMAP AND ITERATE ONCE THROUGH N(
 //HW7
 
 
-void Network::addAdminAccount(int id)
+void Network::addAdminAccount(User* user)
 {
+	int id = user->getId();
 	adminAccounts_.insert(id);
 	updateAdmin();
 }
 
-void Network::deleteAdminAccount(int id)
+void Network::deleteAdminAccount(User* user)
 {
+	int id = user->getId();
 	adminAccounts_.erase(id);
 	updateAdmin();
 }
@@ -531,20 +533,28 @@ void Network::readAdmin()
 
 		if(ss >> id)
 		{
-			addAdminAccount(id);
+			adminAccounts_.insert(id);
 		}
 		ss.clear();
 	}
 }
 
-void Network::addBannedUser(int id)
+bool Network::isAdmin(User* user)
 {
+	return adminAccounts_.contains(user->getId());
+}
+
+
+void Network::addBannedUser(User* user)
+{
+	int id = user->getId();
 	bannedUsers_.insert(id);
 	updateBanned();
 }
 
-void Network::removeBannedUser(int id)
+void Network::removeBannedUser(User* user)
 {
+	int id = user->getId();
 	bannedUsers_.erase(id);
 	updateBanned();
 }
@@ -572,7 +582,7 @@ void Network::readBanned()
 
 		if(ss >> id)
 		{
-			addBannedUser(id);
+			bannedUsers_.insert(id);
 
 		}
 		ss.clear();

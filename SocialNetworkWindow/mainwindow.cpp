@@ -22,8 +22,11 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
 
     network.readUsers(users);
     network.readPosts(posts);
+    network.readAdmin();
+    network.readBanned();
 
     hideDisplayWindow();
+    hideAdminPanel();
 
     ui->login_Button->setText(QString::fromStdString("Login"));
 
@@ -58,6 +61,11 @@ void SocialNetworkWindow::onLoginButton()
 
 }
 
+void SocialNetworkWindow::hideAdminPanel()
+{
+    ui->admin_unbanButton->hide();
+    ui->admin_banButton->hide();
+}
 
 void SocialNetworkWindow::hideLoginWindow()
 {
@@ -78,6 +86,12 @@ void SocialNetworkWindow::hideDisplayWindow()
     ui->display_postButton->hide();
     ui->display_recommendedLabel->hide();
     ui->display_friendsLabel->hide();
+}
+
+void SocialNetworkWindow::showAdminPanel()
+{
+    ui->admin_banButton->show();
+    ui->admin_unbanButton->show();
 }
 
 void SocialNetworkWindow::display_setupFriendSuggestionTable(User* user)
@@ -152,6 +166,20 @@ void SocialNetworkWindow::display_setupPostTable(User* user)
     ui->display_table_posts->show();
 }
 
+void SocialNetworkWindow::display_setupAdminPanel(User* user)
+{
+    if(network.isAdmin(user))
+    {
+        showAdminPanel();
+    }
+
+    else
+    {
+        hideAdminPanel();
+    }
+}
+
+
 void SocialNetworkWindow::showDisplayWindow(User* user)
 {
     if(user != logged_User)
@@ -167,6 +195,9 @@ void SocialNetworkWindow::showDisplayWindow(User* user)
         ui->display_label->setText(QString::fromStdString("My Profile"));
         ui->display_addFriendButton->hide();
     }
+
+    //setup AdminPanel
+
 
     //setting up friend_suggestions
     display_setupFriendSuggestionTable(user);

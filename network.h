@@ -122,11 +122,11 @@ public:
 
 	//pre: id of admin to add is passed in
 	//post: this id is now an adminAccount
-	void addAdminAccount(int id);
+	void addAdminAccount(User* user);
 
 	//pre: id of an admina ccount is passed in
 	//post: this user is now no longer an admin
-	void deleteAdminAccount(int id);
+	void deleteAdminAccount(User* user);
 
 	//pre: 
 	//post: update admin.txt
@@ -136,13 +136,20 @@ public:
 	//post: all admins are read into adminAccounts_
 	void readAdmin();
 
+	bool isAdmin(User* user);
+
+
+
+
+	//Banned
+
 	//pre: user id is passed in
 	//post: this user is now banned
-	void addBannedUser(int id);
+	void addBannedUser(User* user);
 
 	//pre: banned user id is passed in
 	//post: this user is now not banned
-	void removeBannedUser(int id);
+	void removeBannedUser(User* user);
 
 	//pre: 
 	//post: updated banned.txt

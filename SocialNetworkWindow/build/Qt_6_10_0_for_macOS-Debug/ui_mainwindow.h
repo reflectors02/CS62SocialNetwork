@@ -40,7 +40,7 @@ public:
     QPushButton *display_postButton;
     QLabel *display_recommendedLabel;
     QLabel *display_friendsLabel;
-    QPushButton *admin_ban;
+    QPushButton *admin_banButton;
     QPushButton *admin_unbanButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -93,9 +93,9 @@ public:
         display_friendsLabel = new QLabel(centralwidget);
         display_friendsLabel->setObjectName("display_friendsLabel");
         display_friendsLabel->setGeometry(QRect(350, 290, 58, 16));
-        admin_ban = new QPushButton(centralwidget);
-        admin_ban->setObjectName("admin_ban");
-        admin_ban->setGeometry(QRect(340, 650, 100, 32));
+        admin_banButton = new QPushButton(centralwidget);
+        admin_banButton->setObjectName("admin_banButton");
+        admin_banButton->setGeometry(QRect(340, 650, 100, 32));
         admin_unbanButton = new QPushButton(centralwidget);
         admin_unbanButton->setObjectName("admin_unbanButton");
         admin_unbanButton->setGeometry(QRect(480, 650, 100, 32));
@@ -124,7 +124,7 @@ public:
         display_postButton->setText(QCoreApplication::translate("MainWindow", "Post!", nullptr));
         display_recommendedLabel->setText(QCoreApplication::translate("MainWindow", "Recommended", nullptr));
         display_friendsLabel->setText(QCoreApplication::translate("MainWindow", "friends", nullptr));
-        admin_ban->setText(QCoreApplication::translate("MainWindow", "Ban", nullptr));
+        admin_banButton->setText(QCoreApplication::translate("MainWindow", "Ban", nullptr));
         admin_unbanButton->setText(QCoreApplication::translate("MainWindow", "Unban", nullptr));
     } // retranslateUi
 

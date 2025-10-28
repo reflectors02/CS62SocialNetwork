@@ -36,11 +36,14 @@ public:
 
     void onLoginButton();
 
+    void hideAdminPanel();
+
     void hideLoginWindow();
 
     void hideDisplayWindow();
 
 
+    void showAdminPanel();
 
     void showDisplayWindow(User* user);
 
@@ -50,6 +53,7 @@ public:
 
     void display_setupPostTable(User* user);
 
+    void display_setupAdminPanel(User* user);
 
 
 
@@ -64,6 +68,9 @@ public:
     void onRecommendedFriendClicked(int r, int c);
 
     void onPostButtonClicked();
+
+
+
 
 private:
     Network network;

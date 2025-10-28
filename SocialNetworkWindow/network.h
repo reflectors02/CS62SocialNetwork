@@ -108,7 +108,6 @@ public:
 	// 		the returned string will be the concatonation of all the posts---separated by two new lines per post.
 	std::string getPostsString(int profileId, int howMany);
 
-
 	//pre: name of file of interest is passed in as c string. The file contains formatted posts as well as posts with link. This function should read it into the network
 	//post: All of the posts and linkPosts have been inswerted into posts_.
 	int readPosts(char* fname);
@@ -119,9 +118,54 @@ public:
 
 
 
+	//HW7-Administrator and banned
+
+	//pre: id of admin to add is passed in
+	//post: this id is now an adminAccount
+	void addAdminAccount(User* user);
+
+	//pre: id of an admina ccount is passed in
+	//post: this user is now no longer an admin
+	void deleteAdminAccount(User* user);
+
+	//pre: 
+	//post: update admin.txt
+	void updateAdmin();
+
+	//pre: 
+	//post: all admins are read into adminAccounts_
+	void readAdmin();
+
+	bool isAdmin(User* user);
+
+
+
+
+	//Banned
+
+	//pre: user id is passed in
+	//post: this user is now banned
+	void addBannedUser(User* user);
+
+	//pre: banned user id is passed in
+	//post: this user is now not banned
+	void removeBannedUser(User* user);
+
+	//pre: 
+	//post: updated banned.txt
+	void updateBanned();
+
+	//pre:
+	//post: all users are read into bannedUsers_
+	void readBanned();
+
+
 private:
 	std::vector<User*> users_;
 	std::vector<std::vector<Post*>> posts_;
+	std::set<int> adminAccounts_; 
+	std::set<int> bannedUsers_;
+	//Make adminAccounts.txt and banned.txt
 };
 
 #endif
