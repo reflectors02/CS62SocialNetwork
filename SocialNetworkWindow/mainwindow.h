@@ -42,8 +42,10 @@ public:
 
     void hideDisplayWindow();
 
-
     void showAdminPanel();
+
+    void setupAdminPanel(User* user);
+
 
     void showDisplayWindow(User* user);
 
@@ -53,7 +55,6 @@ public:
 
     void display_setupPostTable(User* user);
 
-    void display_setupAdminPanel(User* user);
 
 
 
@@ -68,6 +69,12 @@ public:
     void onRecommendedFriendClicked(int r, int c);
 
     void onPostButtonClicked();
+
+
+
+    void admin_onBanButtonClicked();
+
+    void admin_onUnbanButtonClicked();
 
 
 

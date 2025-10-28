@@ -588,3 +588,8 @@ void Network::readBanned()
 		ss.clear();
 	}
 }
+
+bool Network::isBanned(User* user)
+{
+	return bannedUsers_.contains(user->getId());
+}

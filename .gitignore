@@ -2,4 +2,6 @@
 *.o
 output
 *.out
+UnusedFiles
+
 

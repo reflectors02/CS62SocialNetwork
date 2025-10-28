@@ -36,6 +36,8 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
     connect(ui->display_addFriendButton, &QPushButton::clicked, this, &SocialNetworkWindow::onFriendAddButtonClicked);
     connect(ui->display_suggestFriendsTable, &QTableWidget::cellDoubleClicked, this, &SocialNetworkWindow::onRecommendedFriendClicked);
     connect(ui->display_postButton, &QPushButton::clicked, this, &SocialNetworkWindow::onPostButtonClicked);
+    connect(ui->admin_banButton, &QPushButton::clicked, this, &SocialNetworkWindow::admin_onBanButtonClicked);
+    connect(ui->admin_unbanButton, &QPushButton::clicked, this, &SocialNetworkWindow::admin_onUnbanButtonClicked);
 }
 
 void SocialNetworkWindow::onLoginButton()
@@ -50,6 +52,13 @@ void SocialNetworkWindow::onLoginButton()
         return;
     }
 
+    if(network.isBanned(network.getUser(loggedId)))
+    {
+        ui->login_label->setText(QString::fromStdString("You are banned"));
+        return;
+    }
+
+
     logged_User = network.getUser(loggedId);
     displayed_User = logged_User;
 
@@ -58,6 +67,7 @@ void SocialNetworkWindow::onLoginButton()
     hideLoginWindow();
 
     showDisplayWindow(logged_User);
+    setupAdminPanel(logged_User);
 
 }
 
@@ -166,7 +176,7 @@ void SocialNetworkWindow::display_setupPostTable(User* user)
     ui->display_table_posts->show();
 }
 
-void SocialNetworkWindow::display_setupAdminPanel(User* user)
+void SocialNetworkWindow::setupAdminPanel(User* user)
 {
     if(network.isAdmin(user))
     {
@@ -196,9 +206,6 @@ void SocialNetworkWindow::showDisplayWindow(User* user)
         ui->display_addFriendButton->hide();
     }
 
-    //setup AdminPanel
-
-
     //setting up friend_suggestions
     display_setupFriendSuggestionTable(user);
 
@@ -207,8 +214,6 @@ void SocialNetworkWindow::showDisplayWindow(User* user)
 
     //Setting up posts table
     display_setupPostTable(user);
-
-
 
 
     ui->display_label->show();
@@ -271,6 +276,17 @@ void SocialNetworkWindow::onPostButtonClicked()
     showDisplayWindow(displayed_User);
 }
 
+
+
+void SocialNetworkWindow::admin_onBanButtonClicked()
+{
+    network.addBannedUser(displayed_User);
+}
+
+void SocialNetworkWindow::admin_onUnbanButtonClicked()
+{
+    network.removeBannedUser(displayed_User);
+}
 
 
 

@@ -136,6 +136,8 @@ public:
 	//post: all admins are read into adminAccounts_
 	void readAdmin();
 
+	//pre:
+	//post: return whether this user is an admin or not
 	bool isAdmin(User* user);
 
 
@@ -159,6 +161,9 @@ public:
 	//post: all users are read into bannedUsers_
 	void readBanned();
 
+	//pre:
+	//post: return whether this user is banned or not
+	bool isBanned(User* user);
 
 private:
 	std::vector<User*> users_;
