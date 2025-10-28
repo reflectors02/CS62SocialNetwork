@@ -44,6 +44,7 @@ public:
     QPushButton *admin_unbanButton;
     QPushButton *admin_addAdminButton;
     QPushButton *admin_removeAdminButton;
+    QPushButton *display_logoutButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -76,7 +77,7 @@ public:
         display_table_posts->setGeometry(QRect(620, 330, 961, 192));
         display_returnButton = new QPushButton(centralwidget);
         display_returnButton->setObjectName("display_returnButton");
-        display_returnButton->setGeometry(QRect(1250, 530, 100, 32));
+        display_returnButton->setGeometry(QRect(970, 10, 100, 32));
         display_addFriendButton = new QPushButton(centralwidget);
         display_addFriendButton->setObjectName("display_addFriendButton");
         display_addFriendButton->setGeometry(QRect(730, 10, 100, 32));
@@ -107,6 +108,9 @@ public:
         admin_removeAdminButton = new QPushButton(centralwidget);
         admin_removeAdminButton->setObjectName("admin_removeAdminButton");
         admin_removeAdminButton->setGeometry(QRect(480, 710, 100, 32));
+        display_logoutButton = new QPushButton(centralwidget);
+        display_logoutButton->setObjectName("display_logoutButton");
+        display_logoutButton->setGeometry(QRect(1280, 20, 100, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -136,6 +140,7 @@ public:
         admin_unbanButton->setText(QCoreApplication::translate("MainWindow", "Unban", nullptr));
         admin_addAdminButton->setText(QCoreApplication::translate("MainWindow", "AddAdmin", nullptr));
         admin_removeAdminButton->setText(QCoreApplication::translate("MainWindow", "removeAdmin", nullptr));
+        display_logoutButton->setText(QCoreApplication::translate("MainWindow", "LogOut", nullptr));
     } // retranslateUi
 
 };

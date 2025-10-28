@@ -40,11 +40,16 @@ public:
 
     void hideLoginWindow();
 
+    void showLoginWindow();
+
     void hideDisplayWindow();
 
     void showAdminPanel();
 
     void setupAdminPanel(User* user);
+
+    void onLogoutButton();
+
 
 
     void showDisplayWindow(User* user);

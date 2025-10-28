@@ -40,6 +40,7 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
     connect(ui->admin_unbanButton, &QPushButton::clicked, this, &SocialNetworkWindow::admin_onUnbanButtonClicked);
     connect(ui->admin_addAdminButton, &QPushButton::clicked, this, &SocialNetworkWindow::admin_onAdminAddAdminButtonClicked);
     connect(ui->admin_removeAdminButton, &QPushButton::clicked, this, &SocialNetworkWindow::admin_onAdminRemoveAdminButtonClicked);
+    connect(ui->display_logoutButton, &QPushButton::clicked, this, &SocialNetworkWindow::onLogoutButton);
 }
 
 void SocialNetworkWindow::onLoginButton()
@@ -64,13 +65,23 @@ void SocialNetworkWindow::onLoginButton()
     logged_User = network.getUser(loggedId);
     displayed_User = logged_User;
 
-    ui->login_label->setText(QString::fromStdString(logged_User->getName()));
+    ui->login_label->setText(QString::fromStdString("Enter your name"));
 
     hideLoginWindow();
 
     showDisplayWindow(logged_User);
     setupAdminPanel(logged_User);
 
+}
+
+void SocialNetworkWindow::onLogoutButton()
+{
+    displayed_User = nullptr;
+    logged_User = nullptr;
+
+    hideAdminPanel();
+    hideDisplayWindow();
+    showLoginWindow();
 }
 
 void SocialNetworkWindow::hideAdminPanel()
@@ -88,6 +99,13 @@ void SocialNetworkWindow::hideLoginWindow()
     ui->login_textEdit->hide();
 }
 
+void SocialNetworkWindow::showLoginWindow()
+{
+    ui->login_Button->show();
+    ui->login_label->show();
+    ui->login_textEdit->show();
+}
+
 void SocialNetworkWindow::hideDisplayWindow()
 {
     ui->display_label->hide();
@@ -100,6 +118,7 @@ void SocialNetworkWindow::hideDisplayWindow()
     ui->display_postButton->hide();
     ui->display_recommendedLabel->hide();
     ui->display_friendsLabel->hide();
+    ui->display_logoutButton->hide();
 }
 
 void SocialNetworkWindow::showAdminPanel()
@@ -222,10 +241,12 @@ void SocialNetworkWindow::showDisplayWindow(User* user)
     display_setupPostTable(user);
 
 
+
     ui->display_label->show();
     ui->display_postTextInput->show();
     ui->display_postButton->show();
     ui->display_friendsLabel->show();
+    ui->display_logoutButton->show();
 }
 
 void SocialNetworkWindow::onfriendTableClicked(int r, int c)
