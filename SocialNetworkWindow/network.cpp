@@ -522,7 +522,12 @@ void Network::updateAdmin()
 
 void Network::readAdmin()
 {
-	std::ifstream FileIn("admin.txt");
+    std::ifstream FileIn("admin.txt");
+    if(!FileIn.is_open())
+    {
+        std::ofstream FileOut("admin.txt");
+        FileOut.close();
+    }
 	std::stringstream ss;
 	std::string myline;
 
@@ -572,6 +577,12 @@ void Network::updateBanned()
 void Network::readBanned()
 {
 	std::ifstream FileIn("banned.txt");
+    if(!FileIn.is_open())
+    {
+        std::ofstream FileOut("banned.txt");
+        FileOut.close();
+    }
+
 	std::stringstream ss;
 	std::string myline;
 

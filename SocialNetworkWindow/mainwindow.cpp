@@ -20,6 +20,7 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
     ui = new Ui::MainWindow;
     ui->setupUi(this);
 
+    //can be hardcoded I think
     network.readUsers(users);
     network.readPosts(posts);
     network.readAdmin();
@@ -271,6 +272,7 @@ void SocialNetworkWindow::onFriendAddButtonClicked()
 {
     network.addConnection(logged_User->getName(), displayed_User->getName());
     updateFiles();
+    showDisplayWindow(displayed_User);
 }
 
 void SocialNetworkWindow::updateFiles()
