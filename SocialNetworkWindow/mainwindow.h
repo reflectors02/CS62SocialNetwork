@@ -90,7 +90,11 @@ public:
 
     void display_setupPostTable(User* user);
 
+    void display_setupUserTable();
 
+    //pre: The user clicked on a cell in the ALL users table
+    //post: displayed User is now the clicked user's profile
+    void onAllUserTableClicked(int r, int c);
 
     //pre: the user double clicked on a cell on the friend Table
     //post: Gets taken to the friend's page.
@@ -115,6 +119,15 @@ public:
     //pre: Post button is clicked
     //post: new post with message taken from the text input
     void onPostButtonClicked();
+
+    //pre:
+    //post: this friend is removed from logged_User's friend list
+    void onRemoveFriendButtonClicked();
+
+    //pre: The user clicked on GO
+    //post: displayed User is now the user from the display_goToUserInputField's input
+    //      if user not found, change the text to "USER NOT FOUND, TRY AGAIN"
+    void ongoToUserButtonClicked();
 
 
     //pre: clicked on ban

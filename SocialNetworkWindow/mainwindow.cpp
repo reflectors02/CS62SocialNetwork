@@ -42,6 +42,9 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
     connect(ui->admin_addAdminButton, &QPushButton::clicked, this, &SocialNetworkWindow::admin_onAdminAddAdminButtonClicked);
     connect(ui->admin_removeAdminButton, &QPushButton::clicked, this, &SocialNetworkWindow::admin_onAdminRemoveAdminButtonClicked);
     connect(ui->display_logoutButton, &QPushButton::clicked, this, &SocialNetworkWindow::onLogoutButton);
+    connect(ui->display_removeFriend, &QPushButton::clicked, this, &SocialNetworkWindow::onRemoveFriendButtonClicked);
+    connect(ui->display_table_Users, &QTableWidget::cellDoubleClicked, this, &SocialNetworkWindow::onAllUserTableClicked);
+    connect(ui->display_goToUserButton, &QPushButton::clicked, this, &SocialNetworkWindow::ongoToUserButtonClicked);
 }
 
 void SocialNetworkWindow::onLoginButton()
@@ -120,6 +123,11 @@ void SocialNetworkWindow::hideDisplayWindow()
     ui->display_recommendedLabel->hide();
     ui->display_friendsLabel->hide();
     ui->display_logoutButton->hide();
+    ui->display_removeFriend->hide();
+    ui->display_allUserLabel->hide();
+    ui->display_table_Users->hide();
+    ui->display_goToUserButton->hide();
+    ui->display_goToUserTextField->hide();
 }
 
 void SocialNetworkWindow::showAdminPanel()
@@ -202,6 +210,24 @@ void SocialNetworkWindow::display_setupPostTable(User* user)
     ui->display_table_posts->show();
 }
 
+void SocialNetworkWindow::display_setupUserTable()
+{
+    ui->display_table_Users->setRowCount(network.numUsers());
+    ui->display_table_Users->setColumnCount(1);
+
+    for(int i  = 0; i < network.numUsers(); i++)
+    {
+        User* user = network.getUser(i);
+        QTableWidgetItem* item = new QTableWidgetItem();
+        item->setText(QString::fromStdString(user->getName()));
+        ui->display_table_Users->setItem(i, 0, item);
+    }
+
+    ui->display_table_Users->resizeColumnsToContents();
+    ui->display_allUserLabel->show();
+    ui->display_table_Users->show();
+}
+
 void SocialNetworkWindow::setupAdminPanel(User* user)
 {
     if(network.isAdmin(user))
@@ -215,7 +241,6 @@ void SocialNetworkWindow::setupAdminPanel(User* user)
     }
 }
 
-
 void SocialNetworkWindow::showDisplayWindow(User* user)
 {
     if(user != logged_User)
@@ -223,6 +248,7 @@ void SocialNetworkWindow::showDisplayWindow(User* user)
         ui->display_returnButton->show();
         ui->display_label->setText(QString::fromStdString(user->getName() + "'s Profile"));
         ui->display_addFriendButton->show();
+        ui->display_removeFriend->show();
     }
 
     else
@@ -230,6 +256,7 @@ void SocialNetworkWindow::showDisplayWindow(User* user)
         ui->display_returnButton->hide();
         ui->display_label->setText(QString::fromStdString("My Profile"));
         ui->display_addFriendButton->hide();
+        ui->display_removeFriend->hide();
     }
 
     //setting up friend_suggestions
@@ -241,13 +268,45 @@ void SocialNetworkWindow::showDisplayWindow(User* user)
     //Setting up posts table
     display_setupPostTable(user);
 
-
+    //Setting up all Users table
+    display_setupUserTable();
 
     ui->display_label->show();
     ui->display_postTextInput->show();
     ui->display_postButton->show();
     ui->display_friendsLabel->show();
     ui->display_logoutButton->show();
+    ui->display_removeFriend->show();
+    ui->display_goToUserButton->show();
+    ui->display_goToUserTextField->show();
+}
+
+void SocialNetworkWindow::ongoToUserButtonClicked()
+{
+    std::string user_name = ui->display_goToUserTextField->toPlainText().toStdString();
+
+    if(network.getId(user_name) != -1)
+    {
+        User* user = network.getUser(network.getId(user_name));
+        displayed_User = user;
+        showDisplayWindow(displayed_User);
+        return;
+    }
+
+    ui->display_goToUserTextField->setText("Invalid User, try again");
+
+}
+
+void SocialNetworkWindow::onAllUserTableClicked(int r, int c)
+{
+    auto *item = ui->display_table_Users->item(r, c);
+    if(!item){return;}
+
+    std::string user_name = ui->display_table_Users->item(r, c)->text().toStdString();
+    int userId = network.getId(user_name);
+    displayed_User = network.getUser(userId);
+
+    showDisplayWindow(displayed_User);
 }
 
 void SocialNetworkWindow::onfriendTableClicked(int r, int c)
@@ -306,6 +365,12 @@ void SocialNetworkWindow::onPostButtonClicked()
     showDisplayWindow(displayed_User);
 }
 
+void SocialNetworkWindow::onRemoveFriendButtonClicked()
+{
+    network.deleteConnection(logged_User->getName(), displayed_User->getName());
+    showDisplayWindow(displayed_User);
+    updateFiles();
+}
 
 
 void SocialNetworkWindow::admin_onBanButtonClicked()

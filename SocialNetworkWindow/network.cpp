@@ -600,6 +600,7 @@ void Network::readBanned()
 	}
 }
 
+//will see if the user is banned---will return a bool value
 bool Network::isBanned(User* user)
 {
 	return bannedUsers_.contains(user->getId());
