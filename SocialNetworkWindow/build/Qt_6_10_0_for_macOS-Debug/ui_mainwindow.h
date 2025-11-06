@@ -61,76 +61,102 @@ public:
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setEnabled(true);
+        centralwidget->setStyleSheet(QString::fromUtf8("QWidget {\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,\n"
+"                                      stop:0 #1a2a3a, stop:1 #0f2027);\n"
+"    color: white;\n"
+"    font-family: 'Segoe UI';\n"
+"    font-size: 10pt;\n"
+"}\n"
+"QLineEdit {\n"
+"    background-color: rgba(255,255,255,0.1);\n"
+"    color: white;\n"
+"    border: 1px solid rgba(255,255,255,0.2);\n"
+"    border-radius: 6px;\n"
+"    padding: 4px;\n"
+"}\n"
+"QPushButton {\n"
+"    background-color: rgba(255,255,255,0.1);\n"
+"    color: white;\n"
+"    border: 1px solid rgba(255,255,255,0.2);\n"
+"    border-radius: 6px;\n"
+"    padding: 6px 12px;\n"
+"}\n"
+"QFrame, QTableWidget {\n"
+"    background-color: rgba(255,255,255,0.06);\n"
+"    border-radius: 10px;\n"
+"    padding: 8px;\n"
+"}"));
         login_textEdit = new QTextEdit(centralwidget);
         login_textEdit->setObjectName("login_textEdit");
-        login_textEdit->setGeometry(QRect(710, 190, 361, 71));
+        login_textEdit->setGeometry(QRect(710, 260, 361, 71));
         login_Button = new QPushButton(centralwidget);
         login_Button->setObjectName("login_Button");
-        login_Button->setGeometry(QRect(1070, 190, 111, 71));
+        login_Button->setGeometry(QRect(1070, 260, 111, 71));
         login_label = new QLabel(centralwidget);
         login_label->setObjectName("login_label");
-        login_label->setGeometry(QRect(710, 140, 351, 31));
+        login_label->setGeometry(QRect(710, 210, 351, 31));
         display_label = new QLabel(centralwidget);
         display_label->setObjectName("display_label");
         display_label->setEnabled(true);
-        display_label->setGeometry(QRect(840, 10, 281, 16));
+        display_label->setGeometry(QRect(750, 20, 331, 61));
         display_table_friends = new QTableWidget(centralwidget);
         display_table_friends->setObjectName("display_table_friends");
-        display_table_friends->setGeometry(QRect(330, 330, 261, 261));
+        display_table_friends->setGeometry(QRect(330, 400, 261, 261));
         display_table_posts = new QTableWidget(centralwidget);
         display_table_posts->setObjectName("display_table_posts");
-        display_table_posts->setGeometry(QRect(620, 80, 981, 391));
+        display_table_posts->setGeometry(QRect(620, 150, 981, 391));
         display_returnButton = new QPushButton(centralwidget);
         display_returnButton->setObjectName("display_returnButton");
-        display_returnButton->setGeometry(QRect(970, 10, 100, 32));
+        display_returnButton->setGeometry(QRect(1280, 30, 100, 32));
         display_addFriendButton = new QPushButton(centralwidget);
         display_addFriendButton->setObjectName("display_addFriendButton");
-        display_addFriendButton->setGeometry(QRect(670, 0, 100, 32));
+        display_addFriendButton->setGeometry(QRect(620, 30, 100, 32));
         display_suggestFriendsTable = new QTableWidget(centralwidget);
         display_suggestFriendsTable->setObjectName("display_suggestFriendsTable");
-        display_suggestFriendsTable->setGeometry(QRect(330, 80, 261, 211));
+        display_suggestFriendsTable->setGeometry(QRect(330, 150, 261, 211));
         display_postTextInput = new QTextEdit(centralwidget);
         display_postTextInput->setObjectName("display_postTextInput");
-        display_postTextInput->setGeometry(QRect(620, 500, 851, 91));
+        display_postTextInput->setGeometry(QRect(620, 570, 851, 91));
         display_postButton = new QPushButton(centralwidget);
         display_postButton->setObjectName("display_postButton");
-        display_postButton->setGeometry(QRect(1480, 500, 121, 91));
+        display_postButton->setGeometry(QRect(1480, 570, 121, 91));
         display_recommendedLabel = new QLabel(centralwidget);
         display_recommendedLabel->setObjectName("display_recommendedLabel");
-        display_recommendedLabel->setGeometry(QRect(340, 50, 141, 20));
+        display_recommendedLabel->setGeometry(QRect(330, 110, 161, 41));
         display_friendsLabel = new QLabel(centralwidget);
         display_friendsLabel->setObjectName("display_friendsLabel");
-        display_friendsLabel->setGeometry(QRect(340, 310, 58, 16));
+        display_friendsLabel->setGeometry(QRect(330, 370, 131, 31));
         admin_banButton = new QPushButton(centralwidget);
         admin_banButton->setObjectName("admin_banButton");
-        admin_banButton->setGeometry(QRect(1660, 910, 100, 32));
+        admin_banButton->setGeometry(QRect(1370, 800, 100, 32));
         admin_unbanButton = new QPushButton(centralwidget);
         admin_unbanButton->setObjectName("admin_unbanButton");
-        admin_unbanButton->setGeometry(QRect(1800, 910, 100, 32));
+        admin_unbanButton->setGeometry(QRect(1510, 800, 100, 32));
         admin_addAdminButton = new QPushButton(centralwidget);
         admin_addAdminButton->setObjectName("admin_addAdminButton");
-        admin_addAdminButton->setGeometry(QRect(1660, 970, 100, 32));
+        admin_addAdminButton->setGeometry(QRect(1370, 860, 100, 32));
         admin_removeAdminButton = new QPushButton(centralwidget);
         admin_removeAdminButton->setObjectName("admin_removeAdminButton");
-        admin_removeAdminButton->setGeometry(QRect(1800, 970, 100, 32));
+        admin_removeAdminButton->setGeometry(QRect(1510, 860, 100, 32));
         display_logoutButton = new QPushButton(centralwidget);
         display_logoutButton->setObjectName("display_logoutButton");
-        display_logoutButton->setGeometry(QRect(1280, 20, 100, 32));
+        display_logoutButton->setGeometry(QRect(1280, 0, 100, 32));
         display_removeFriend = new QPushButton(centralwidget);
         display_removeFriend->setObjectName("display_removeFriend");
-        display_removeFriend->setGeometry(QRect(670, 40, 100, 32));
+        display_removeFriend->setGeometry(QRect(620, 0, 100, 32));
         display_table_Users = new QTableWidget(centralwidget);
         display_table_Users->setObjectName("display_table_Users");
-        display_table_Users->setGeometry(QRect(30, 80, 256, 511));
+        display_table_Users->setGeometry(QRect(30, 150, 256, 511));
         display_allUserLabel = new QLabel(centralwidget);
         display_allUserLabel->setObjectName("display_allUserLabel");
-        display_allUserLabel->setGeometry(QRect(30, 60, 58, 16));
+        display_allUserLabel->setGeometry(QRect(30, 110, 141, 41));
         display_goToUserButton = new QPushButton(centralwidget);
         display_goToUserButton->setObjectName("display_goToUserButton");
-        display_goToUserButton->setGeometry(QRect(210, 590, 71, 71));
+        display_goToUserButton->setGeometry(QRect(210, 660, 71, 71));
         display_goToUserTextField = new QTextEdit(centralwidget);
         display_goToUserTextField->setObjectName("display_goToUserTextField");
-        display_goToUserTextField->setGeometry(QRect(30, 590, 181, 71));
+        display_goToUserTextField->setGeometry(QRect(30, 660, 181, 71));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -159,8 +185,8 @@ public:
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Post here</p></body></html>", nullptr));
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.AppleSystemUIFont'; font-size:13pt;\">Post here</span></p></body></html>", nullptr));
         display_postButton->setText(QCoreApplication::translate("MainWindow", "Post!", nullptr));
         display_recommendedLabel->setText(QCoreApplication::translate("MainWindow", "Recommended", nullptr));
         display_friendsLabel->setText(QCoreApplication::translate("MainWindow", "friends", nullptr));
@@ -178,8 +204,8 @@ public:
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Type user here</p></body></html>", nullptr));
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.AppleSystemUIFont'; font-size:13pt;\">Type user here</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

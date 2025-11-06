@@ -17,11 +17,39 @@
    <property name="enabled">
     <bool>true</bool>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
+                                      stop:0 #1a2a3a, stop:1 #0f2027);
+    color: white;
+    font-family: 'Segoe UI';
+    font-size: 10pt;
+}
+QLineEdit {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 4px;
+}
+QPushButton {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+QFrame, QTableWidget {
+    background-color: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 8px;
+}</string>
+   </property>
    <widget class="QTextEdit" name="login_textEdit">
     <property name="geometry">
      <rect>
       <x>710</x>
-      <y>190</y>
+      <y>260</y>
       <width>361</width>
       <height>71</height>
      </rect>
@@ -31,7 +59,7 @@
     <property name="geometry">
      <rect>
       <x>1070</x>
-      <y>190</y>
+      <y>260</y>
       <width>111</width>
       <height>71</height>
      </rect>
@@ -44,7 +72,7 @@
     <property name="geometry">
      <rect>
       <x>710</x>
-      <y>140</y>
+      <y>210</y>
       <width>351</width>
       <height>31</height>
      </rect>
@@ -59,10 +87,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>840</x>
-      <y>10</y>
-      <width>281</width>
-      <height>16</height>
+      <x>750</x>
+      <y>20</y>
+      <width>331</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
@@ -73,7 +101,7 @@
     <property name="geometry">
      <rect>
       <x>330</x>
-      <y>330</y>
+      <y>400</y>
       <width>261</width>
       <height>261</height>
      </rect>
@@ -83,7 +111,7 @@
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>80</y>
+      <y>150</y>
       <width>981</width>
       <height>391</height>
      </rect>
@@ -92,8 +120,8 @@
    <widget class="QPushButton" name="display_returnButton">
     <property name="geometry">
      <rect>
-      <x>970</x>
-      <y>10</y>
+      <x>1280</x>
+      <y>30</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -105,8 +133,8 @@
    <widget class="QPushButton" name="display_addFriendButton">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>0</y>
+      <x>620</x>
+      <y>30</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -119,7 +147,7 @@
     <property name="geometry">
      <rect>
       <x>330</x>
-      <y>80</y>
+      <y>150</y>
       <width>261</width>
       <height>211</height>
      </rect>
@@ -129,7 +157,7 @@
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>500</y>
+      <y>570</y>
       <width>851</width>
       <height>91</height>
      </rect>
@@ -141,15 +169,15 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Post here&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:13pt;&quot;&gt;Post here&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="display_postButton">
     <property name="geometry">
      <rect>
       <x>1480</x>
-      <y>500</y>
+      <y>570</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -161,10 +189,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QLabel" name="display_recommendedLabel">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>50</y>
-      <width>141</width>
-      <height>20</height>
+      <x>330</x>
+      <y>110</y>
+      <width>161</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -174,10 +202,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QLabel" name="display_friendsLabel">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>310</y>
-      <width>58</width>
-      <height>16</height>
+      <x>330</x>
+      <y>370</y>
+      <width>131</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -187,8 +215,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="admin_banButton">
     <property name="geometry">
      <rect>
-      <x>1660</x>
-      <y>910</y>
+      <x>1370</x>
+      <y>800</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -200,8 +228,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="admin_unbanButton">
     <property name="geometry">
      <rect>
-      <x>1800</x>
-      <y>910</y>
+      <x>1510</x>
+      <y>800</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -213,8 +241,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="admin_addAdminButton">
     <property name="geometry">
      <rect>
-      <x>1660</x>
-      <y>970</y>
+      <x>1370</x>
+      <y>860</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -226,8 +254,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="admin_removeAdminButton">
     <property name="geometry">
      <rect>
-      <x>1800</x>
-      <y>970</y>
+      <x>1510</x>
+      <y>860</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -240,7 +268,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <property name="geometry">
      <rect>
       <x>1280</x>
-      <y>20</y>
+      <y>0</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -252,8 +280,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="display_removeFriend">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>40</y>
+      <x>620</x>
+      <y>0</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -266,7 +294,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>80</y>
+      <y>150</y>
       <width>256</width>
       <height>511</height>
      </rect>
@@ -276,9 +304,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>60</y>
-      <width>58</width>
-      <height>16</height>
+      <y>110</y>
+      <width>141</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -289,7 +317,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>590</y>
+      <y>660</y>
       <width>71</width>
       <height>71</height>
      </rect>
@@ -302,7 +330,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>590</y>
+      <y>660</y>
       <width>181</width>
       <height>71</height>
      </rect>
@@ -314,8 +342,8 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Type user here&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.AppleSystemUIFont'; font-size:13pt;&quot;&gt;Type user here&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>

@@ -45,6 +45,8 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
     connect(ui->display_removeFriend, &QPushButton::clicked, this, &SocialNetworkWindow::onRemoveFriendButtonClicked);
     connect(ui->display_table_Users, &QTableWidget::cellDoubleClicked, this, &SocialNetworkWindow::onAllUserTableClicked);
     connect(ui->display_goToUserButton, &QPushButton::clicked, this, &SocialNetworkWindow::ongoToUserButtonClicked);
+
+
 }
 
 void SocialNetworkWindow::onLoginButton()
