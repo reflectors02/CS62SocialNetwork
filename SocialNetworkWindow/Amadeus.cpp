@@ -8,8 +8,7 @@ using namespace std;
 
 string run_python(const string& message) 
 {
-    // Build the command with absolute script path
-    const string cmd = "/opt/anaconda3/bin/python3 script.py \"" + message + "\"";
+    string cmd = "/opt/anaconda3/bin/python3 script.py \"" + message + "\"";
 
     array<char, 128> buffer{};
     string result;
