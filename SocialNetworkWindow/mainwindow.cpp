@@ -46,6 +46,7 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
     connect(ui->display_removeFriend, &QPushButton::clicked, this, &SocialNetworkWindow::onRemoveFriendButtonClicked);
     connect(ui->display_table_Users, &QTableWidget::cellDoubleClicked, this, &SocialNetworkWindow::onAllUserTableClicked);
     connect(ui->display_goToUserButton, &QPushButton::clicked, this, &SocialNetworkWindow::ongoToUserButtonClicked);
+    connect(ui->amadeus_sendButton, &QPushButton::clicked, this, &SocialNetworkWindow::onAmadeusPostButtonClicked);
 
 
 }
@@ -131,6 +132,21 @@ void SocialNetworkWindow::hideDisplayWindow()
     ui->display_table_Users->hide();
     ui->display_goToUserButton->hide();
     ui->display_goToUserTextField->hide();
+    hideAmadeus();
+}
+
+void SocialNetworkWindow::hideAmadeus()
+{
+    ui->amadeus_responseBox->hide();
+    ui->amadeus_sendButton->hide();
+    ui->amadeus_textBox->hide();
+}
+
+void SocialNetworkWindow::showAmadeus()
+{
+    ui->amadeus_responseBox->show();
+    ui->amadeus_sendButton->show();
+    ui->amadeus_textBox->show();
 }
 
 void SocialNetworkWindow::showAdminPanel()
@@ -282,6 +298,15 @@ void SocialNetworkWindow::showDisplayWindow(User* user)
     ui->display_removeFriend->show();
     ui->display_goToUserButton->show();
     ui->display_goToUserTextField->show();
+
+    if(displayed_User == logged_User && logged_User->getFriends().size() == 0)
+    {
+        showAmadeus();
+    }
+    else
+    {
+        hideAmadeus();
+    }
 }
 
 void SocialNetworkWindow::ongoToUserButtonClicked()
@@ -297,7 +322,6 @@ void SocialNetworkWindow::ongoToUserButtonClicked()
     }
 
     ui->display_goToUserTextField->setText("Invalid User, try again");
-
 }
 
 void SocialNetworkWindow::onAllUserTableClicked(int r, int c)
@@ -396,4 +420,10 @@ void SocialNetworkWindow::admin_onAdminRemoveAdminButtonClicked()
     network.deleteAdminAccount(displayed_User);
 }
 
+void SocialNetworkWindow::onAmadeusPostButtonClicked()
+{
+    std::string user_message = ui->amadeus_textBox->toPlainText().toStdString();
+    std::string response = getMessage(user_message);
+    ui->amadeus_responseBox->setText(QString::fromStdString(response));
+}
 

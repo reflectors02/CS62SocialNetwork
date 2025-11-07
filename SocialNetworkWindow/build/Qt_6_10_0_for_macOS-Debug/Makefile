@@ -63,7 +63,9 @@ OBJECTS       = main.o \
 		post.o \
 		user.o \
 		moc_mainwindow.o
-DIST          = /Users/hankang/Qt/6.10.0/macos/mkspecs/features/spec_pre.prf \
+DIST          = ../../api_key.txt \
+		../../script.py \
+		/Users/hankang/Qt/6.10.0/macos/mkspecs/features/spec_pre.prf \
 		/Users/hankang/Qt/6.10.0/macos/mkspecs/features/device_config.prf \
 		/Users/hankang/Qt/6.10.0/macos/mkspecs/common/unix.conf \
 		/Users/hankang/Qt/6.10.0/macos/mkspecs/common/mac.conf \
@@ -732,7 +734,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.h ../../network.h ../../post.h ../../user.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../main.cpp ../../mainwindow.cpp ../../network.cpp ../../post.cpp ../../user.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Amadeus.cpp ../../main.cpp ../../mainwindow.cpp ../../network.cpp ../../post.cpp ../../user.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.ui $(DISTDIR)/
 
 
@@ -803,6 +805,8 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		../../network.h \
 		../../user.h \
 		../../post.h \
+		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/QDir \
+		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/qdir.h \
 		/Users/hankang/Qt/6.10.0/macos/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/hankang/Qt/6.10.0/macos/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
@@ -813,7 +817,10 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../network.h \
 		../../user.h \
 		../../post.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../Amadeus.cpp \
+		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/QCoreApplication \
+		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/qcoreapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 network.o: ../../network.cpp ../../network.h \

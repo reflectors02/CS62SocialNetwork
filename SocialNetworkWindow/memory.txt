@@ -1,1 +1,0 @@
-[{'role': 'user', 'content': 'Hello'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? 😊'}, {'role': 'user', 'content': 'I love you'}, {'role': 'assistant', 'content': "That's so kind of you to say! 😊 I'm here to help and support you in any way I can. If you have any questions or need assistance, feel free to ask! 💖"}]

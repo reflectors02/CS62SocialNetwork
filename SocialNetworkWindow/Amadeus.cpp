@@ -2,12 +2,14 @@
 #include <cstdio>
 #include <memory>
 #include <array>
+#include <QCoreApplication>
 using namespace std;
 
 
 string run_python(const string& message) 
 {
-    const string cmd = "python3 script.py \"" + message + "\"";
+    // Build the command with absolute script path
+    const string cmd = "/opt/anaconda3/bin/python3 script.py \"" + message + "\"";
 
     array<char, 128> buffer{};
     string result;
@@ -24,25 +26,25 @@ string run_python(const string& message)
     return result;
 }
 
-void getMessage(string user_message)
+string getMessage(string user_message)
 {
     string output = run_python(user_message);
-    cout << "Python says: " << output << endl;
+    return output;
 }
 
 
-int main() 
-{
-    string message;
-    do
-    {
-        getline(std::cin, message);
-        if(message == "-1")
-        {
-            return 1;
-        }
-        getMessage(message);
+// int main()
+// {
+//     string message;
+//     do
+//     {
+//         getline(std::cin, message);
+//         if(message == "-1")
+//         {
+//             return 1;
+//         }
+//         getMessage(message);
 
-    }
-    while(message != "-1");
-}
+//     }
+//     while(message != "-1");
+// }

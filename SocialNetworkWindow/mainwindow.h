@@ -67,6 +67,10 @@ public:
     //post: show the admin panel
     void showAdminPanel();
 
+    void showAmadeus();
+
+    void hideAmadeus();
+
     //pre: A user is passed in
     //post: If the user is part of adminUsers, then display the adminPanel
     //      if not, then hide it
@@ -128,6 +132,8 @@ public:
     //post: displayed User is now the user from the display_goToUserInputField's input
     //      if user not found, change the text to "USER NOT FOUND, TRY AGAIN"
     void ongoToUserButtonClicked();
+
+    void onAmadeusPostButtonClicked();
 
 
     //pre: clicked on ban

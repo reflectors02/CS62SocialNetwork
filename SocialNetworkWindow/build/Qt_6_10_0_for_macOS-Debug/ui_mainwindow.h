@@ -50,6 +50,9 @@ public:
     QLabel *display_allUserLabel;
     QPushButton *display_goToUserButton;
     QTextEdit *display_goToUserTextField;
+    QTextEdit *amadeus_textBox;
+    QLabel *amadeus_responseBox;
+    QPushButton *amadeus_sendButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -157,6 +160,15 @@ public:
         display_goToUserTextField = new QTextEdit(centralwidget);
         display_goToUserTextField->setObjectName("display_goToUserTextField");
         display_goToUserTextField->setGeometry(QRect(30, 660, 181, 71));
+        amadeus_textBox = new QTextEdit(centralwidget);
+        amadeus_textBox->setObjectName("amadeus_textBox");
+        amadeus_textBox->setGeometry(QRect(330, 830, 261, 81));
+        amadeus_responseBox = new QLabel(centralwidget);
+        amadeus_responseBox->setObjectName("amadeus_responseBox");
+        amadeus_responseBox->setGeometry(QRect(330, 690, 261, 131));
+        amadeus_sendButton = new QPushButton(centralwidget);
+        amadeus_sendButton->setObjectName("amadeus_sendButton");
+        amadeus_sendButton->setGeometry(QRect(330, 920, 100, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -206,6 +218,8 @@ public:
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.AppleSystemUIFont'; font-size:13pt;\">Type user here</span></p></body></html>", nullptr));
+        amadeus_responseBox->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        amadeus_sendButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
     } // retranslateUi
 
 };
