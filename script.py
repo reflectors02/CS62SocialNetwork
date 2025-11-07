@@ -8,9 +8,9 @@ API_KEY = ""
 personality = ""
 
 with open("personality.txt", "r") as personalityFile:
-    personality = persoanlityFile.read();
+    personality = personalityFile.read();
 
-default_personality = {"role" : "assistant", "content": personality}
+default_personality = [{"role" : "assistant", "content": personality}]
 
 
 with open("api_key.txt", "r") as apiFile:
@@ -19,6 +19,8 @@ with open("api_key.txt", "r") as apiFile:
 def readContext():
     with open("memory.txt", "r") as file:
         data = file.read().strip()
+        if not data:
+            return []
         return eval(data)
 
 def updateMemory(context):
@@ -34,7 +36,7 @@ def getResponse(message_context):
         },
         json={
             "model": "deepseek/deepseek-chat-v3.1",
-            "messages": message_context,
+            "messages": default_personality + message_context,
         },
     )
     data = resp.json()
