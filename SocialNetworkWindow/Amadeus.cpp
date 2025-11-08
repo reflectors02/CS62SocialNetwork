@@ -8,7 +8,7 @@ using namespace std;
 
 string run_python(const string& message) 
 {
-    string cmd = "/opt/anaconda3/bin/python3 script.py \"" + message + "\"";
+    string cmd = "/opt/anaconda3/envs/Amadeus/bin/python3 script.py \"" + message + "\"";
 
     array<char, 128> buffer{};
     string result;
@@ -32,18 +32,3 @@ string getMessage(string user_message)
 }
 
 
-// int main()
-// {
-//     string message;
-//     do
-//     {
-//         getline(std::cin, message);
-//         if(message == "-1")
-//         {
-//             return 1;
-//         }
-//         getMessage(message);
-
-//     }
-//     while(message != "-1");
-// }
