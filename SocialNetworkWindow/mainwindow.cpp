@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "Connector.h"
+#include <QPixmap>
 #include <sstream>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -32,6 +33,8 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
 
     ui->login_Button->setText(QString::fromStdString("Login"));
 
+    ui->amadeus_enterButton->hide();
+
     connect(ui->login_Button, &QPushButton::clicked, this, &SocialNetworkWindow::onLoginButton);
     connect(ui->display_table_friends, &QTableWidget::cellDoubleClicked, this, &SocialNetworkWindow::onfriendTableClicked);
     connect(ui->display_returnButton, &QPushButton::clicked, this, &SocialNetworkWindow::onReturnButtonClicked);
@@ -47,8 +50,11 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
     connect(ui->display_table_Users, &QTableWidget::cellDoubleClicked, this, &SocialNetworkWindow::onAllUserTableClicked);
     connect(ui->display_goToUserButton, &QPushButton::clicked, this, &SocialNetworkWindow::ongoToUserButtonClicked);
     connect(ui->amadeus_sendButton, &QPushButton::clicked, this, &SocialNetworkWindow::onAmadeusPostButtonClicked);
+    connect(ui->amadeus_enterButton, &QPushButton::clicked, this, &SocialNetworkWindow::onEnterAmadeusButtonClicked);
 
-
+    QLabel *image = new QLabel();
+    QPixmap pixmap("pictures/Kurisu.jpg");
+    ui->amadeus_picture->setPixmap(pixmap);
 }
 
 void SocialNetworkWindow::onLoginButton()
@@ -140,6 +146,7 @@ void SocialNetworkWindow::hideAmadeus()
     ui->amadeus_responseBox->hide();
     ui->amadeus_sendButton->hide();
     ui->amadeus_textBox->hide();
+    ui->amadeus_picture->hide();
 }
 
 void SocialNetworkWindow::showAmadeus()
@@ -147,6 +154,7 @@ void SocialNetworkWindow::showAmadeus()
     ui->amadeus_responseBox->show();
     ui->amadeus_sendButton->show();
     ui->amadeus_textBox->show();
+    ui->amadeus_picture->show();
 }
 
 void SocialNetworkWindow::showAdminPanel()
@@ -301,11 +309,11 @@ void SocialNetworkWindow::showDisplayWindow(User* user)
 
     if(displayed_User == logged_User && logged_User->getFriends().size() == 0)
     {
-        showAmadeus();
+        ui->amadeus_enterButton->show();
     }
     else
     {
-        hideAmadeus();
+        ui->amadeus_enterButton->hide();
     }
 }
 
@@ -419,6 +427,15 @@ void SocialNetworkWindow::admin_onAdminRemoveAdminButtonClicked()
 {
     network.deleteAdminAccount(displayed_User);
 }
+
+void SocialNetworkWindow::onEnterAmadeusButtonClicked()
+{
+    hideAdminPanel();
+    hideDisplayWindow();
+    hideLoginWindow();
+    showAmadeus();
+}
+
 
 void SocialNetworkWindow::onAmadeusPostButtonClicked()
 {

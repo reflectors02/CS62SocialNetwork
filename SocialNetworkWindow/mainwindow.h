@@ -133,6 +133,9 @@ public:
     //      if user not found, change the text to "USER NOT FOUND, TRY AGAIN"
     void ongoToUserButtonClicked();
 
+
+    void onEnterAmadeusButtonClicked();
+
     void onAmadeusPostButtonClicked();
 
 
