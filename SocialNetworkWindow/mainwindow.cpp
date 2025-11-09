@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "Amadeus.cpp"
+#include "Connector.h"
 #include <sstream>
 
 MainWindow::MainWindow(QWidget *parent)

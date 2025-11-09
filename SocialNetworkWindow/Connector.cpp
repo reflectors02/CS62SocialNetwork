@@ -1,14 +1,10 @@
-#include <iostream>
-#include <cstdio>
-#include <memory>
-#include <array>
-#include <QCoreApplication>
+#include "Connector.h"
 using namespace std;
 
 
 string run_python(const string& message) 
 {
-    string cmd = "/opt/anaconda3/envs/Amadeus/bin/python3 script.py \"" + message + "\"";
+    string cmd = "/opt/anaconda3/envs/Amadeus/bin/python3 Amadeus.py \"" + message + "\"";
 
     array<char, 128> buffer{};
     string result;

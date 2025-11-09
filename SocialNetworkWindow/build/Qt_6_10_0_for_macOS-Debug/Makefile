@@ -52,19 +52,21 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../main.cpp \
+SOURCES       = ../../Connector.cpp \
+		../../main.cpp \
 		../../mainwindow.cpp \
 		../../network.cpp \
 		../../post.cpp \
 		../../user.cpp moc_mainwindow.cpp
-OBJECTS       = main.o \
+OBJECTS       = Connector.o \
+		main.o \
 		mainwindow.o \
 		network.o \
 		post.o \
 		user.o \
 		moc_mainwindow.o
 DIST          = ../../api_key.txt \
-		../../script.py \
+		../../Amadeus.py \
 		/Users/hankang/Qt/6.10.0/macos/mkspecs/features/spec_pre.prf \
 		/Users/hankang/Qt/6.10.0/macos/mkspecs/features/device_config.prf \
 		/Users/hankang/Qt/6.10.0/macos/mkspecs/common/unix.conf \
@@ -266,10 +268,12 @@ DIST          = ../../api_key.txt \
 		/Users/hankang/Qt/6.10.0/macos/mkspecs/features/exceptions.prf \
 		/Users/hankang/Qt/6.10.0/macos/mkspecs/features/yacc.prf \
 		/Users/hankang/Qt/6.10.0/macos/mkspecs/features/lex.prf \
-		../../../../SocialNetworkWindow.pro ../../mainwindow.h \
+		../../../../SocialNetworkWindow.pro ../../Connector.h \
+		../../mainwindow.h \
 		../../network.h \
 		../../post.h \
-		../../user.h ../../main.cpp \
+		../../user.h ../../Connector.cpp \
+		../../main.cpp \
 		../../mainwindow.cpp \
 		../../network.cpp \
 		../../post.cpp \
@@ -733,8 +737,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../../mainwindow.h ../../network.h ../../post.h ../../user.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Amadeus.cpp ../../main.cpp ../../mainwindow.cpp ../../network.cpp ../../post.cpp ../../user.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Connector.h ../../mainwindow.h ../../network.h ../../post.h ../../user.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Connector.cpp ../../main.cpp ../../mainwindow.cpp ../../network.cpp ../../post.cpp ../../user.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.ui $(DISTDIR)/
 
 
@@ -799,6 +803,11 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
+Connector.o: ../../Connector.cpp ../../Connector.h \
+		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/QCoreApplication \
+		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/qcoreapplication.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Connector.o ../../Connector.cpp
+
 main.o: ../../main.cpp ../../mainwindow.h \
 		/Users/hankang/Qt/6.10.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/hankang/Qt/6.10.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -818,7 +827,7 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../user.h \
 		../../post.h \
 		ui_mainwindow.h \
-		../../Amadeus.cpp \
+		../../Connector.h \
 		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/QCoreApplication \
 		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/qcoreapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
