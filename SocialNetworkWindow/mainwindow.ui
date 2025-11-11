@@ -100,20 +100,20 @@ QFrame, QTableWidget {
    <widget class="QTableWidget" name="display_table_friends">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>450</x>
       <y>400</y>
       <width>261</width>
-      <height>261</height>
+      <height>301</height>
      </rect>
     </property>
    </widget>
    <widget class="QTableWidget" name="display_table_posts">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>740</x>
       <y>150</y>
       <width>781</width>
-      <height>391</height>
+      <height>451</height>
      </rect>
     </property>
    </widget>
@@ -146,7 +146,7 @@ QFrame, QTableWidget {
    <widget class="QTableWidget" name="display_suggestFriendsTable">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>450</x>
       <y>150</y>
       <width>261</width>
       <height>211</height>
@@ -156,8 +156,8 @@ QFrame, QTableWidget {
    <widget class="QTextEdit" name="display_postTextInput">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>550</y>
+      <x>740</x>
+      <y>610</y>
       <width>661</width>
       <height>91</height>
      </rect>
@@ -176,8 +176,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="display_postButton">
     <property name="geometry">
      <rect>
-      <x>1330</x>
-      <y>550</y>
+      <x>1410</x>
+      <y>610</y>
       <width>111</width>
       <height>91</height>
      </rect>
@@ -189,7 +189,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QLabel" name="display_recommendedLabel">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>450</x>
       <y>110</y>
       <width>161</width>
       <height>41</height>
@@ -202,7 +202,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QLabel" name="display_friendsLabel">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>450</x>
       <y>370</y>
       <width>131</width>
       <height>31</height>
@@ -215,8 +215,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="admin_banButton">
     <property name="geometry">
      <rect>
-      <x>1370</x>
-      <y>800</y>
+      <x>1280</x>
+      <y>790</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -228,8 +228,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="admin_unbanButton">
     <property name="geometry">
      <rect>
-      <x>1510</x>
-      <y>800</y>
+      <x>1420</x>
+      <y>790</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -241,8 +241,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="admin_addAdminButton">
     <property name="geometry">
      <rect>
-      <x>1370</x>
-      <y>860</y>
+      <x>1280</x>
+      <y>850</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -254,8 +254,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="admin_removeAdminButton">
     <property name="geometry">
      <rect>
-      <x>1510</x>
-      <y>860</y>
+      <x>1420</x>
+      <y>850</y>
       <width>100</width>
       <height>32</height>
      </rect>
@@ -293,17 +293,17 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QTableWidget" name="display_table_Users">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>140</x>
       <y>150</y>
       <width>281</width>
-      <height>511</height>
+      <height>471</height>
      </rect>
     </property>
    </widget>
    <widget class="QLabel" name="display_allUserLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>140</x>
       <y>110</y>
       <width>161</width>
       <height>41</height>
@@ -316,8 +316,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="display_goToUserButton">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>660</y>
+      <x>350</x>
+      <y>630</y>
       <width>71</width>
       <height>71</height>
      </rect>
@@ -329,8 +329,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QTextEdit" name="display_goToUserTextField">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>660</y>
+      <x>140</x>
+      <y>630</y>
       <width>211</width>
       <height>71</height>
      </rect>
@@ -389,9 +389,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <property name="geometry">
      <rect>
       <x>660</x>
-      <y>120</y>
-      <width>141</width>
-      <height>121</height>
+      <y>110</y>
+      <width>171</width>
+      <height>131</height>
      </rect>
     </property>
     <property name="text">
@@ -401,14 +401,53 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QPushButton" name="amadeus_enterButton">
     <property name="geometry">
      <rect>
-      <x>1360</x>
-      <y>700</y>
+      <x>1570</x>
+      <y>150</y>
       <width>111</width>
       <height>61</height>
      </rect>
     </property>
     <property name="text">
      <string>Enter Amadeus</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="amadeus_exitButton">
+    <property name="geometry">
+     <rect>
+      <x>1570</x>
+      <y>150</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Exit Amadeus</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="amadeus_speakButton">
+    <property name="geometry">
+     <rect>
+      <x>1220</x>
+      <y>460</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Speak</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="amadeus_nameLabel">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>65</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Kurisu Makise (牧瀬 紅莉栖)</string>
     </property>
    </widget>
    <zorder>login_textEdit</zorder>
@@ -439,6 +478,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <zorder>amadeus_picture</zorder>
    <zorder>amadeus_enterButton</zorder>
    <zorder>login_Button</zorder>
+   <zorder>amadeus_exitButton</zorder>
+   <zorder>amadeus_speakButton</zorder>
+   <zorder>amadeus_nameLabel</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -449,6 +491,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <height>37</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuHEIL">
+    <property name="title">
+     <string>HEIL</string>
+    </property>
+   </widget>
+   <addaction name="menuHEIL"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

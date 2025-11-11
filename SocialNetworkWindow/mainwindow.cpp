@@ -34,6 +34,7 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
     ui->login_Button->setText(QString::fromStdString("Login"));
 
     ui->amadeus_enterButton->hide();
+    ui->amadeus_exitButton->hide();
 
     connect(ui->login_Button, &QPushButton::clicked, this, &SocialNetworkWindow::onLoginButton);
     connect(ui->display_table_friends, &QTableWidget::cellDoubleClicked, this, &SocialNetworkWindow::onfriendTableClicked);
@@ -51,6 +52,8 @@ SocialNetworkWindow::SocialNetworkWindow(char* users, char* posts)
     connect(ui->display_goToUserButton, &QPushButton::clicked, this, &SocialNetworkWindow::ongoToUserButtonClicked);
     connect(ui->amadeus_sendButton, &QPushButton::clicked, this, &SocialNetworkWindow::onAmadeusPostButtonClicked);
     connect(ui->amadeus_enterButton, &QPushButton::clicked, this, &SocialNetworkWindow::onEnterAmadeusButtonClicked);
+    connect(ui->amadeus_exitButton, &QPushButton::clicked, this, &SocialNetworkWindow::onAmadeusExitButtonClicked);
+    connect(ui->amadeus_speakButton, &QPushButton::clicked, this, &SocialNetworkWindow::onAmadeusSpeakButtonClicked);
 
     QLabel *image = new QLabel();
     QPixmap pixmap("pictures/Kurisu.jpg");
@@ -147,6 +150,8 @@ void SocialNetworkWindow::hideAmadeus()
     ui->amadeus_sendButton->hide();
     ui->amadeus_textBox->hide();
     ui->amadeus_picture->hide();
+    ui->amadeus_speakButton->hide();
+    ui->amadeus_nameLabel->hide();
 }
 
 void SocialNetworkWindow::showAmadeus()
@@ -155,6 +160,8 @@ void SocialNetworkWindow::showAmadeus()
     ui->amadeus_sendButton->show();
     ui->amadeus_textBox->show();
     ui->amadeus_picture->show();
+    ui->amadeus_speakButton->show();
+    ui->amadeus_nameLabel->show();
 }
 
 void SocialNetworkWindow::showAdminPanel()
@@ -433,7 +440,17 @@ void SocialNetworkWindow::onEnterAmadeusButtonClicked()
     hideAdminPanel();
     hideDisplayWindow();
     hideLoginWindow();
+    ui->amadeus_enterButton->hide();
+    ui->amadeus_exitButton->show();
     showAmadeus();
+}
+
+void SocialNetworkWindow::onAmadeusExitButtonClicked()
+{
+    hideAmadeus();
+    ui->amadeus_exitButton->hide();
+    ui->amadeus_enterButton->show();
+    onLoginButton();
 }
 
 
@@ -444,3 +461,7 @@ void SocialNetworkWindow::onAmadeusPostButtonClicked()
     ui->amadeus_responseBox->setText(QString::fromStdString(response));
 }
 
+void SocialNetworkWindow::onAmadeusSpeakButtonClicked()
+{
+    play_sound();
+}

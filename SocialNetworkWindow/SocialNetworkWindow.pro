@@ -13,6 +13,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     network.cpp \
+    play_sound.cpp \
     post.cpp \
     user.cpp
 
@@ -20,6 +21,7 @@ HEADERS += \
     Connector.h \
     mainwindow.h \
     network.h \
+    play_sound.h \
     post.h \
     user.h
 

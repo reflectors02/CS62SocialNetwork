@@ -50,11 +50,5 @@ def generateVoice(response):
 
     sf.write("ttsout/generated.wav", wav, sr)
 
-    play_sound();
-
-def play_sound():
-    subprocess.run(["afplay", "ttsout/generated.wav"])
-
-
 def onChat(assistant_reply):
 	generateVoice(assistant_reply)

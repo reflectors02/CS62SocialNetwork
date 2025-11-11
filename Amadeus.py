@@ -53,7 +53,7 @@ def getTranslation(assistant_reply):
         },
         json={
             "model": "deepseek/deepseek-chat-v3.1",
-            "messages": [{"role" : "system", "content": "translate following into japanese to be used in voice generation."}] + [{"role": "user", "content" : assistant_reply}],
+            "messages": [{"role" : "system", "content": "translate following into japanese to be used in voice generation. Ignore the expressions i.e. whats inside * *. Only do the spoken dialogue"}] + [{"role": "user", "content" : assistant_reply}],
         },
     )
     data = resp.json()

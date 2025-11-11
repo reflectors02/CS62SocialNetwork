@@ -10,10 +10,12 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -55,7 +57,11 @@ public:
     QPushButton *amadeus_sendButton;
     QLabel *amadeus_picture;
     QPushButton *amadeus_enterButton;
+    QPushButton *amadeus_exitButton;
+    QPushButton *amadeus_speakButton;
+    QLabel *amadeus_nameLabel;
     QMenuBar *menubar;
+    QMenu *menuHEIL;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -107,10 +113,10 @@ public:
         display_label->setGeometry(QRect(750, 20, 331, 61));
         display_table_friends = new QTableWidget(centralwidget);
         display_table_friends->setObjectName("display_table_friends");
-        display_table_friends->setGeometry(QRect(360, 400, 261, 261));
+        display_table_friends->setGeometry(QRect(450, 400, 261, 301));
         display_table_posts = new QTableWidget(centralwidget);
         display_table_posts->setObjectName("display_table_posts");
-        display_table_posts->setGeometry(QRect(660, 150, 781, 391));
+        display_table_posts->setGeometry(QRect(740, 150, 781, 451));
         display_returnButton = new QPushButton(centralwidget);
         display_returnButton->setObjectName("display_returnButton");
         display_returnButton->setGeometry(QRect(1280, 30, 100, 32));
@@ -119,31 +125,31 @@ public:
         display_addFriendButton->setGeometry(QRect(620, 30, 100, 32));
         display_suggestFriendsTable = new QTableWidget(centralwidget);
         display_suggestFriendsTable->setObjectName("display_suggestFriendsTable");
-        display_suggestFriendsTable->setGeometry(QRect(360, 150, 261, 211));
+        display_suggestFriendsTable->setGeometry(QRect(450, 150, 261, 211));
         display_postTextInput = new QTextEdit(centralwidget);
         display_postTextInput->setObjectName("display_postTextInput");
-        display_postTextInput->setGeometry(QRect(660, 550, 661, 91));
+        display_postTextInput->setGeometry(QRect(740, 610, 661, 91));
         display_postButton = new QPushButton(centralwidget);
         display_postButton->setObjectName("display_postButton");
-        display_postButton->setGeometry(QRect(1330, 550, 111, 91));
+        display_postButton->setGeometry(QRect(1410, 610, 111, 91));
         display_recommendedLabel = new QLabel(centralwidget);
         display_recommendedLabel->setObjectName("display_recommendedLabel");
-        display_recommendedLabel->setGeometry(QRect(360, 110, 161, 41));
+        display_recommendedLabel->setGeometry(QRect(450, 110, 161, 41));
         display_friendsLabel = new QLabel(centralwidget);
         display_friendsLabel->setObjectName("display_friendsLabel");
-        display_friendsLabel->setGeometry(QRect(360, 370, 131, 31));
+        display_friendsLabel->setGeometry(QRect(450, 370, 131, 31));
         admin_banButton = new QPushButton(centralwidget);
         admin_banButton->setObjectName("admin_banButton");
-        admin_banButton->setGeometry(QRect(1370, 800, 100, 32));
+        admin_banButton->setGeometry(QRect(1280, 790, 100, 32));
         admin_unbanButton = new QPushButton(centralwidget);
         admin_unbanButton->setObjectName("admin_unbanButton");
-        admin_unbanButton->setGeometry(QRect(1510, 800, 100, 32));
+        admin_unbanButton->setGeometry(QRect(1420, 790, 100, 32));
         admin_addAdminButton = new QPushButton(centralwidget);
         admin_addAdminButton->setObjectName("admin_addAdminButton");
-        admin_addAdminButton->setGeometry(QRect(1370, 860, 100, 32));
+        admin_addAdminButton->setGeometry(QRect(1280, 850, 100, 32));
         admin_removeAdminButton = new QPushButton(centralwidget);
         admin_removeAdminButton->setObjectName("admin_removeAdminButton");
-        admin_removeAdminButton->setGeometry(QRect(1510, 860, 100, 32));
+        admin_removeAdminButton->setGeometry(QRect(1420, 850, 100, 32));
         display_logoutButton = new QPushButton(centralwidget);
         display_logoutButton->setObjectName("display_logoutButton");
         display_logoutButton->setGeometry(QRect(1280, 0, 100, 32));
@@ -152,16 +158,16 @@ public:
         display_removeFriend->setGeometry(QRect(620, 0, 100, 32));
         display_table_Users = new QTableWidget(centralwidget);
         display_table_Users->setObjectName("display_table_Users");
-        display_table_Users->setGeometry(QRect(30, 150, 281, 511));
+        display_table_Users->setGeometry(QRect(140, 150, 281, 471));
         display_allUserLabel = new QLabel(centralwidget);
         display_allUserLabel->setObjectName("display_allUserLabel");
-        display_allUserLabel->setGeometry(QRect(30, 110, 161, 41));
+        display_allUserLabel->setGeometry(QRect(140, 110, 161, 41));
         display_goToUserButton = new QPushButton(centralwidget);
         display_goToUserButton->setObjectName("display_goToUserButton");
-        display_goToUserButton->setGeometry(QRect(240, 660, 71, 71));
+        display_goToUserButton->setGeometry(QRect(350, 630, 71, 71));
         display_goToUserTextField = new QTextEdit(centralwidget);
         display_goToUserTextField->setObjectName("display_goToUserTextField");
-        display_goToUserTextField->setGeometry(QRect(30, 660, 211, 71));
+        display_goToUserTextField->setGeometry(QRect(140, 630, 211, 71));
         amadeus_textBox = new QTextEdit(centralwidget);
         amadeus_textBox->setObjectName("amadeus_textBox");
         amadeus_textBox->setGeometry(QRect(660, 460, 551, 81));
@@ -174,10 +180,19 @@ public:
         amadeus_sendButton->setGeometry(QRect(660, 550, 100, 32));
         amadeus_picture = new QLabel(centralwidget);
         amadeus_picture->setObjectName("amadeus_picture");
-        amadeus_picture->setGeometry(QRect(660, 120, 141, 121));
+        amadeus_picture->setGeometry(QRect(660, 110, 171, 131));
         amadeus_enterButton = new QPushButton(centralwidget);
         amadeus_enterButton->setObjectName("amadeus_enterButton");
-        amadeus_enterButton->setGeometry(QRect(1360, 700, 111, 61));
+        amadeus_enterButton->setGeometry(QRect(1570, 150, 111, 61));
+        amadeus_exitButton = new QPushButton(centralwidget);
+        amadeus_exitButton->setObjectName("amadeus_exitButton");
+        amadeus_exitButton->setGeometry(QRect(1570, 150, 111, 61));
+        amadeus_speakButton = new QPushButton(centralwidget);
+        amadeus_speakButton->setObjectName("amadeus_speakButton");
+        amadeus_speakButton->setGeometry(QRect(1220, 460, 100, 32));
+        amadeus_nameLabel = new QLabel(centralwidget);
+        amadeus_nameLabel->setObjectName("amadeus_nameLabel");
+        amadeus_nameLabel->setGeometry(QRect(660, 65, 201, 41));
         MainWindow->setCentralWidget(centralwidget);
         login_textEdit->raise();
         login_label->raise();
@@ -207,13 +222,20 @@ public:
         amadeus_picture->raise();
         amadeus_enterButton->raise();
         login_Button->raise();
+        amadeus_exitButton->raise();
+        amadeus_speakButton->raise();
+        amadeus_nameLabel->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 1920, 37));
+        menuHEIL = new QMenu(menubar);
+        menuHEIL->setObjectName("menuHEIL");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuHEIL->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -259,6 +281,10 @@ public:
         amadeus_sendButton->setText(QCoreApplication::translate("MainWindow", "Send", nullptr));
         amadeus_picture->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         amadeus_enterButton->setText(QCoreApplication::translate("MainWindow", "Enter Amadeus", nullptr));
+        amadeus_exitButton->setText(QCoreApplication::translate("MainWindow", "Exit Amadeus", nullptr));
+        amadeus_speakButton->setText(QCoreApplication::translate("MainWindow", "Speak", nullptr));
+        amadeus_nameLabel->setText(QCoreApplication::translate("MainWindow", "Kurisu Makise (\347\211\247\347\200\254 \347\264\205\350\216\211\346\240\226)", nullptr));
+        menuHEIL->setTitle(QCoreApplication::translate("MainWindow", "HEIL", nullptr));
     } // retranslateUi
 
 };

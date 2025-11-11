@@ -27,4 +27,3 @@ string getMessage(string user_message)
     return output;
 }
 
-

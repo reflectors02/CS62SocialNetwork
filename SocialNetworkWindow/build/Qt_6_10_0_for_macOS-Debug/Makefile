@@ -56,12 +56,14 @@ SOURCES       = ../../Connector.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
 		../../network.cpp \
+		../../play_sound.cpp \
 		../../post.cpp \
 		../../user.cpp moc_mainwindow.cpp
 OBJECTS       = Connector.o \
 		main.o \
 		mainwindow.o \
 		network.o \
+		play_sound.o \
 		post.o \
 		user.o \
 		moc_mainwindow.o
@@ -271,11 +273,13 @@ DIST          = ../../api_key.txt \
 		../../../../SocialNetworkWindow.pro ../../Connector.h \
 		../../mainwindow.h \
 		../../network.h \
+		../../play_sound.h \
 		../../post.h \
 		../../user.h ../../Connector.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
 		../../network.cpp \
+		../../play_sound.cpp \
 		../../post.cpp \
 		../../user.cpp
 QMAKE_TARGET  = SocialNetworkWindow
@@ -737,8 +741,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Connector.h ../../mainwindow.h ../../network.h ../../post.h ../../user.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Connector.cpp ../../main.cpp ../../mainwindow.cpp ../../network.cpp ../../post.cpp ../../user.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Connector.h ../../mainwindow.h ../../network.h ../../play_sound.h ../../post.h ../../user.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Connector.cpp ../../main.cpp ../../mainwindow.cpp ../../network.cpp ../../play_sound.cpp ../../post.cpp ../../user.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.ui $(DISTDIR)/
 
 
@@ -777,6 +781,7 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		../../network.h \
 		../../user.h \
 		../../post.h \
+		../../play_sound.h \
 		/Users/hankang/Qt/6.10.0/macos/libexec/moc
 	/Users/hankang/Qt/6.10.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=16 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/hankang/Qt/6.10.0/macos/mkspecs/macx-clang -I/Users/hankang/Desktop/cs/cs62/HW/SocialNetworkWindow -I/Users/hankang/Qt/6.10.0/macos/lib/QtWidgets.framework/Headers -I/Users/hankang/Qt/6.10.0/macos/lib/QtGui.framework/Headers -I/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/hankang/Qt/6.10.0/macos/lib ../../mainwindow.h -o moc_mainwindow.cpp
 
@@ -814,6 +819,7 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		../../network.h \
 		../../user.h \
 		../../post.h \
+		../../play_sound.h \
 		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/QDir \
 		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/qdir.h \
 		/Users/hankang/Qt/6.10.0/macos/lib/QtWidgets.framework/Headers/QApplication \
@@ -826,16 +832,22 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../network.h \
 		../../user.h \
 		../../post.h \
+		../../play_sound.h \
 		ui_mainwindow.h \
 		../../Connector.h \
 		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/QCoreApplication \
-		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/qcoreapplication.h
+		/Users/hankang/Qt/6.10.0/macos/lib/QtCore.framework/Headers/qcoreapplication.h \
+		/Users/hankang/Qt/6.10.0/macos/lib/QtGui.framework/Headers/QPixmap \
+		/Users/hankang/Qt/6.10.0/macos/lib/QtGui.framework/Headers/qpixmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 network.o: ../../network.cpp ../../network.h \
 		../../user.h \
 		../../post.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o network.o ../../network.cpp
+
+play_sound.o: ../../play_sound.cpp ../../play_sound.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o play_sound.o ../../play_sound.cpp
 
 post.o: ../../post.cpp ../../post.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o post.o ../../post.cpp

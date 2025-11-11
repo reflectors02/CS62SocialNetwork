@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "network.h"
+#include "play_sound.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -137,6 +138,10 @@ public:
     void onEnterAmadeusButtonClicked();
 
     void onAmadeusPostButtonClicked();
+
+    void onAmadeusExitButtonClicked();
+
+    void onAmadeusSpeakButtonClicked();
 
 
     //pre: clicked on ban
